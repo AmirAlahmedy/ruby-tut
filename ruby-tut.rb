@@ -127,3 +127,64 @@ This is a very
 long string  #{4 + 5} \n\n
 EOM
 puts multiline_string 
+
+
+first_name = "Amir"
+middle_name = "Salah"
+last_name = "Alahmedy"
+
+full_name = "#{first_name} #{middle_name} #{last_name}"
+puts full_name.include?("Amir")
+puts full_name.size
+puts "Vowels : " + full_name.count("aeiou").to_s
+puts "Consonants : " + full_name.count("^aeiou").to_s
+puts full_name.start_with?("Salah")
+puts full_name.index("Salah")
+puts full_name.upcase
+puts full_name.downcase
+puts full_name.swapcase
+
+
+full_name = "           " + full_name
+
+full_name = full_name.lstrip
+full_name = full_name.rstrip
+full_name = full_name.strip
+
+puts full_name.rjust(20, '.')
+puts full_name.ljust(20, '.')
+puts full_name.center(20, '.')
+
+puts full_name.chop
+puts full_name.chomp('dy')
+
+class Animal
+    def initialize
+        puts "Creating a new animal"
+    end
+
+    def set_name(new_name)
+        @name = new_name
+    end
+
+    def get_name
+        @name
+    end
+
+    def name
+        @name
+    end
+
+    def name=(new_name)
+        if new_name.is_a?(Numeric)
+            puts "name can't be a number"
+        else
+            @name = new_name
+        end
+    end
+end
+
+cat = Animal.new
+cat.set_name("moshi")
+puts cat.get_name
+puts cat.name
