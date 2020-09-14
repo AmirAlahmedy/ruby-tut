@@ -214,3 +214,19 @@ max = GermanShepard.new
 max.name = "Max"
 
 printf "%s goes %s \n", max.name, max.bark()
+
+require_relative "human"
+require_relative "smart"
+
+module Bird
+    def make_sound
+        puts "Grrrrr"
+    end
+end
+
+class Crow
+    include Bird
+end
+
+kafka = Crow.new
+kafka.make_sound
