@@ -230,3 +230,58 @@ end
 
 kafka = Crow.new
 kafka.make_sound
+
+class Scientist
+    include Human
+    prepend Smart
+    def act_smart
+        return "e=mc^2"
+    end
+end
+
+einstein = Scientist.new
+einstein.name = "Albert"
+puts einstein.name
+einstein.run
+puts einstein.name + " says " + einstein.act_smart
+
+class Bigcat
+    def roar(cat_type)
+        cat_type.roar
+    end
+end
+
+class Lion < Bigcat
+    def roar
+        puts 'roaaaaaar'
+    end
+end
+
+class Tiger < Bigcat
+    def roar
+        puts "roarrrrrrrr"
+    end
+end
+
+generic_big_cat = Bigcat.new
+generic_big_cat.roar(Lion.new)
+generic_big_cat.roar(Tiger.new)
+
+# symbols, symbols in ruby are basucally strings that cannot be changed
+:Amir
+puts :Amir
+puts :Amir.to_s
+puts :Amir.class
+puts :Amir.object_id
+
+# couple of different ways to create an array in ruby
+arr_1 = Array.new
+arr_2 = Array.new(10)
+arr_3 = Array.new(10, "empty")
+arr_4 = [1, "amir", 2.5]
+
+puts arr_1
+puts arr_2
+puts arr_3
+puts arr_4
+puts arr_4.values_at(0, 1, 2).join(", ")
