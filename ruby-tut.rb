@@ -188,3 +188,29 @@ cat = Animal.new
 cat.set_name("moshi")
 puts cat.get_name
 puts cat.name
+
+class Dog
+    attr_reader :name, :height, :weight # sets all your getter functions
+    attr_writer :name, :height, :weight # sets all your setter functions
+    # or you can create all the getters and setters with one statement
+    # attr_accessor :name, :height, :weight
+
+    def bark 
+        return "Generic bark"
+    end
+end
+
+rover = Dog.new 
+rover.name = "Rover"
+puts rover.name
+
+class GermanShepard < Dog
+    def bark
+        return "loud bark"
+    end
+end
+
+max = GermanShepard.new
+max.name = "Max"
+
+printf "%s goes %s \n", max.name, max.bark()
